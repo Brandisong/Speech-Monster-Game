@@ -1,17 +1,20 @@
+<!DOCTYPE html>
 <head>
-    <h1>Speech Game Prototype</h1>
+    <link rel="stylesheet" href="speech_game.css">
+    <div id="title" class="title"></div>
 </head>
 
-<body>
+<body class="centre">
     <!-- Monster sprite -->
-    <div id="imageContainer"> </div>
+    <div id="backgroundImage"></div>
+    <div id="imageContainer"></div>
     
     <div id="ui">
         <!-- Health meter -->
-         <progress id="healthBar" max="100"></progress>
+         <progress id="healthBar" max="100" class="centre" style="scale: 2"></progress>
          <p id="healthMeter"></p>
         <!-- Attack button -->
-        <input type="button" value="Attack!" onclick="dealDamage();" />
+        <input type="button" value="Attack!" onclick="dealDamage();" class="my-button"/>
     </div>
 </body>
 

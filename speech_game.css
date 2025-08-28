@@ -1,0 +1,28 @@
+body {
+    background-color:antiquewhite
+}
+
+.centre {
+  margin: auto;
+  width: 50%;
+}
+ 
+p {
+  text-align: center;
+  font-size: x-large;
+}
+
+.my-button {
+    transform: scale(2);
+}
+
+.title {
+    font-size: xx-large;
+    margin: auto;
+    width: 50%;
+}
+
+progress {
+    scale: 3;
+    padding: 0px 0px
+}

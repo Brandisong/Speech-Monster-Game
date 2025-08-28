@@ -12,13 +12,29 @@ let audioAttack = new Audio("sounds/sword.mp3");
 let audioExplosion = new Audio("sounds/explosion.mp3");
 let audioVictory = new Audio("sounds/victory.mp3");
 
+// Set title
+document.getElementById("title").innerHTML = "Monster attacks!";
+
 // Monster sprite
-const img = document.createElement('img');
-img.src = "images/mean_guy.png"
-img.width = 300;
-img.height = 300;
+const monsterSprite = document.createElement('img');
+monsterSprite.src = "images/mean_guy.png"
+monsterSprite.width = 500;
+monsterSprite.height = 500;
+monsterSprite.style.margin = "0 auto;";
 // Insert into document
-document.getElementById("imageContainer").appendChild(img)
+monsterSprite.style = "position: absolute; z-index: 2;";
+document.getElementById("imageContainer").appendChild(monsterSprite)
+
+// Background for monster
+const monsterBackground = document.createElement('img');
+monsterBackground.src = "images/background.png";
+monsterBackground.width = 500;
+monsterBackground.height = 500;
+monsterBackground.style.margin = "0 auto;";
+// Insert behind monster sprite
+monsterBackground.style = "position: relative; z-index: 1;";
+document.getElementById("imageContainer").appendChild(monsterBackground)
+
 
 // FUNCTIONS
 
@@ -62,19 +78,21 @@ function checkIfDead()
 
 
 // You win!
-function victory()
+async function victory()
 {
     // Explosion visual effect
-    const explodeGif = document.createElement('img');
-    explodeGif.src = "images/explosion.gif";
-    explodeGif.width = 300;
-    explodeGif.height = 300;
-    document.getElementById("imageContainer").appendChild(explodeGif);
-
-    // Replace image
-    img.src = "images/dead.jpg"
-    // Play sounds
     audioExplosion.play();
+    monsterSprite.src = "images/explosion.gif";
+    // Delay for victory screen
+    setTimeout(endScreen, 1000);
+}
+
+
+// This is a separate function just to have a delay
+function endScreen()
+{
+    document.getElementById("title").innerHTML = "Your did it!";
+    monsterSprite.src = "images/dead.png";
     audioVictory.play();
 }
 
